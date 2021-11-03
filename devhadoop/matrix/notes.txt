@@ -1,0 +1,16 @@
+hdfs dfs -mkdir /matrixinput
+hdfs dfs -copyFromLocal input /matrix/input
+
+hdfs dfs -copyFromLocal M /matrixinput
+
+hadoop jar MatrixMultiplyS.jar /matrixinput /matrix_outputs
+
+$ hdfs dfs -mkdir /input/matrix/
+$ hdfs dfs -copyFromLocal M.txt /input/matrix/
+$ hdfs dfs -copyFromLocal N.txt /input/matrix/
+
+hadoop jar MatrixMultiplyS2.jar /input/matrix/ /output/matrix/runs2
+
+hadoop fs -cat /output/matrix/runs2/part-r-00000
+
+hadoop fs -cat /input/matrix/M.txt

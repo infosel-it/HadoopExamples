@@ -1,0 +1,18 @@
+hdfs dfs -mkdir /avginput
+hdfs dfs -copyFromLocal input /matrix/input
+
+hdfs dfs -copyFromLocal M /matrixinput
+
+hadoop jar MatrixMultiplyS.jar /matrixinput /matrix_outputs
+
+$ hdfs dfs -mkdir /input/avginput/
+$ hdfs dfs -copyFromLocal inputint.txt /input/avginput/
+
+hadoop jar avgmapredint.jar /input/avginput/ /output/avgoutput/run1
+
+hadoop fs -cat /output/avgoutput/run1/part-r-00000
+
+hadoop fs -cat /input/matrix/M.txt
+
+
+ hdfs dfs -copyFromLocal inputint.txt /input/distinct/

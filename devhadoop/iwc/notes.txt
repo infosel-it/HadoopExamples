@@ -1,0 +1,12 @@
+
+hdfs dfs -mkdir /input/iwc1
+hdfs dfs -mkdir /input/iwc2
+hdfs dfs -mkdir /output/iwc
+
+hdfs dfs -copyFromLocal girla.txt /input/iwc1
+hdfs dfs -copyFromLocal girlb.txt /input/iwc2
+
+hadoop jar iwc.jar /input/iwc1 /input/iwc2 /output/iwc
+
+hadoop fs -cat /output/iwc/run1/part-r-00000
+

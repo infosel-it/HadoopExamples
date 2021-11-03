@@ -1,0 +1,25 @@
+
+hdfs dfs -mkdir /input/njoin
+hdfs dfs -mkdir /input/njoin1
+hdfs dfs -mkdir /output/njoin
+
+hdfs dfs -copyFromLocal userdetails.csv /input/njoin
+hdfs dfs -copyFromLocal addressdetails.csv /input/njoin1
+
+hadoop jar njoin.jar /input/njoin /input/njoin1 /output/njoin/run1
+
+hadoop fs -cat /output/njoin/run1/part-r-00000
+
+
+
+
+hdfs dfs -mkdir /input/unjoin1
+hdfs dfs -mkdir /input/anjoin1
+hdfs dfs -mkdir /output/onjoin1
+
+hdfs dfs -copyFromLocal userdetails.csv /input/unjoin1
+hdfs dfs -copyFromLocal addressdetails.csv /input/anjoin1
+
+hadoop jar njoin.jar /input/unjoin1 /input/anjoin1 /output/onjoin1/run1
+
+hadoop fs -cat /output/onjoin1/run1/part-r-00000

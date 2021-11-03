@@ -1,0 +1,13 @@
+
+hdfs dfs -mkdir /input/union
+hdfs dfs -mkdir /input/union
+hdfs dfs -mkdir /output/union
+
+hdfs dfs -copyFromLocal A.txt /input/union/test1
+hdfs dfs -copyFromLocal B.txt /input/union/test1
+
+hadoop jar union.jar /input/union/test1 /output/union/run2
+
+hadoop fs -cat /output/union/run1/part-r-00000
+
+hdfs dfs -rm -r /input/union/test1/*

@@ -1,0 +1,4 @@
+hdfs dfs -copyFromLocal inputint.txt /input/distinct/
+
+
+hadoop jar distinct.jar /input/distinct/ /output/distinct

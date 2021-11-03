@@ -1,0 +1,2 @@
+Hello Hadoop Good bye . If execution success then say Hello
+This is first example for Hadoop Word Count. Good bye
